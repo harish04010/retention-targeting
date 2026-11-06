@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Retention targeting: who to call before they cancel</title>
+<meta name="description" content="A churn model on real telecom data, turned into a decision: which customers are worth a retention offer, and whether the campaign pays.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header class="intro">
+    <h1>Who’s about to cancel, and is it worth calling them?</h1>
+    <p class="lede">A churn model trained on 7,043 real customers of a telecom company, then turned into the decision a retention team actually makes: who gets an offer. Everything here runs in your browser.</p>
+  </header>
+
+  <section aria-labelledby="h-sim">
+    <h2 id="h-sim">Try a customer</h2>
+    <p class="note">Change anything and the model rescores instantly, with the reasons behind it.</p>
+    <div class="sim">
+      <form id="customer" class="sim__form" autocomplete="off"></form>
+      <div class="sim__out" aria-live="polite">
+        <p class="risk__label">Chance they cancel</p>
+        <p class="risk__value" id="risk">–</p>
+        <div class="risk__bar" aria-hidden="true"><span id="risk-marker"></span><span id="avg-marker" title="Average customer"></span></div>
+        <p class="risk__scale"><span>Safe</span><span id="avg-label">Average</span><span>Leaving</span></p>
+        <h3>Why</h3>
+        <ul id="reasons" class="reasons"></ul>
+        <div id="verdict" class="verdict"></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-plan">
+    <h2 id="h-plan">Plan a campaign</h2>
+    <p class="note">These are assumptions, not facts. Move them and see what happens on 1,409 customers the model never saw in training.</p>
+    <div class="plan">
+      <div class="plan__controls" id="assumptions"></div>
+      <div class="plan__out">
+        <svg id="curve" viewBox="0 0 640 300" role="img" aria-label="Campaign profit as more customers are contacted"></svg>
+        <p class="note small" id="curve-note"></p>
+        <div class="scroll"><table id="policies"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-card">
+    <h2 id="h-card">How good is the model, and where does it fall short?</h2>
+    <div class="card" id="card"></div>
+  </section>
+
+  <footer class="foot">
+    Data: IBM Telco Customer Churn sample, Apache License 2.0. Model trained with scikit-learn and reimplemented in JavaScript, tested to match within 10⁻⁹.
+    Source and full write-up in the repository.
+  </footer>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

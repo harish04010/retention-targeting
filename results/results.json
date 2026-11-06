@@ -1,0 +1,504 @@
+{
+ "data": {
+  "source": "https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv",
+  "license": "Apache-2.0 (IBM)",
+  "rows": 7043,
+  "train": 5634,
+  "holdout": 1409,
+  "churn_rate": 0.2653698707936959,
+  "blank_total_charges_fixed": 11
+ },
+ "cv": [
+  {
+   "model": "random_forest",
+   "roc_auc": 0.846239425547593,
+   "roc_auc_sd": 0.009775965520067532,
+   "pr_auc": 0.6599231082017869,
+   "brier": 0.13525056838749466
+  },
+  {
+   "model": "logistic_regression",
+   "roc_auc": 0.8449247605440531,
+   "roc_auc_sd": 0.012415357565787754,
+   "pr_auc": 0.6598546548766809,
+   "brier": 0.13545331092348092
+  },
+  {
+   "model": "gradient_boosting",
+   "roc_auc": 0.8390263735962312,
+   "roc_auc_sd": 0.009848489836894028,
+   "pr_auc": 0.6532686367012116,
+   "brier": 0.13802629065362376
+  }
+ ],
+ "holdout": {
+  "roc_auc": 0.8383657547340413,
+  "pr_auc": 0.6295769693403482,
+  "brier": 0.1394001415648439,
+  "log_loss": 0.42429383029236145,
+  "base_rate": 0.2654364797728886
+ },
+ "auc_with_age": 0.8397116949546618,
+ "calibration": [
+  {
+   "predicted": 0.00881932476383451,
+   "actual": 0.014184397163120567,
+   "n": 141
+  },
+  {
+   "predicted": 0.0239051046193709,
+   "actual": 0.0070921985815602835,
+   "n": 141
+  },
+  {
+   "predicted": 0.047276988819205425,
+   "actual": 0.04964539007092199,
+   "n": 141
+  },
+  {
+   "predicted": 0.08881321077873156,
+   "actual": 0.09929078014184398,
+   "n": 141
+  },
+  {
+   "predicted": 0.15025228974225774,
+   "actual": 0.1773049645390071,
+   "n": 141
+  },
+  {
+   "predicted": 0.2266346550905398,
+   "actual": 0.2765957446808511,
+   "n": 141
+  },
+  {
+   "predicted": 0.3380173434027964,
+   "actual": 0.2978723404255319,
+   "n": 141
+  },
+  {
+   "predicted": 0.46931646075543854,
+   "actual": 0.425531914893617,
+   "n": 141
+  },
+  {
+   "predicted": 0.5963220026317695,
+   "actual": 0.574468085106383,
+   "n": 141
+  },
+  {
+   "predicted": 0.7324103134622327,
+   "actual": 0.7357142857142858,
+   "n": 140
+  }
+ ],
+ "assumptions": {
+  "margin": 0.4,
+  "horizon_months": 12,
+  "save_rate": 0.3,
+  "offer_months_free": 1.0,
+  "stayer_accept_rate": 0.6,
+  "contact_cost": 5.0
+ },
+ "policies": [
+  {
+   "policy": "Contact nobody",
+   "rule": "Do nothing",
+   "contacted": 0,
+   "share": 0.0,
+   "profit": 0.0,
+   "churners_reached": 0
+  },
+  {
+   "policy": "Contact everyone",
+   "rule": "Blanket campaign",
+   "contacted": 1409,
+   "share": 1.0,
+   "profit": -13871.793999999998,
+   "churners_reached": 374
+  },
+  {
+   "policy": "Random 20%",
+   "rule": "What a campaign looks like without a model",
+   "contacted": 281,
+   "share": 0.1994322214336409,
+   "profit": -4412.713,
+   "churners_reached": 64
+  },
+  {
+   "policy": "Riskiest 20%",
+   "rule": "Highest churn probability first",
+   "contacted": 281,
+   "share": 0.1994322214336409,
+   "profit": 10800.527000000002,
+   "churners_reached": 184
+  },
+  {
+   "policy": "Positive expected value",
+   "rule": "Anyone whose expected profit from a call is above zero",
+   "contacted": 437,
+   "share": 0.31014904187366926,
+   "profit": 10746.890000000001,
+   "churners_reached": 248
+  }
+ ],
+ "profit_curve": [
+  {
+   "share": 0.0007097232079489,
+   "profit": 115.72600000000001
+  },
+  {
+   "share": 0.0205819730305181,
+   "profit": 2207.5130000000004
+  },
+  {
+   "share": 0.0411639460610362,
+   "profit": 3338.7220000000007
+  },
+  {
+   "share": 0.061745919091554295,
+   "profit": 4948.521000000001
+  },
+  {
+   "share": 0.08161816891412349,
+   "profit": 5586.9490000000005
+  },
+  {
+   "share": 0.1022001419446416,
+   "profit": 6682.527000000003
+  },
+  {
+   "share": 0.12278211497515969,
+   "profit": 7875.338000000002
+  },
+  {
+   "share": 0.1433640880056778,
+   "profit": 9668.749000000003
+  },
+  {
+   "share": 0.16323633782824698,
+   "profit": 10402.934000000007
+  },
+  {
+   "share": 0.18381831085876507,
+   "profit": 10733.044000000007
+  },
+  {
+   "share": 0.2044002838892832,
+   "profit": 10720.515000000009
+  },
+  {
+   "share": 0.22498225691980128,
+   "profit": 11179.19900000001
+  },
+  {
+   "share": 0.24485450674237047,
+   "profit": 10958.163000000011
+  },
+  {
+   "share": 0.2654364797728886,
+   "profit": 10545.26300000001
+  },
+  {
+   "share": 0.28601845280340665,
+   "profit": 10716.84100000001
+  },
+  {
+   "share": 0.3066004258339248,
+   "profit": 10428.18000000001
+  },
+  {
+   "share": 0.32647267565649396,
+   "profit": 10652.197000000013
+  },
+  {
+   "share": 0.3470546486870121,
+   "profit": 10253.487000000014
+  },
+  {
+   "share": 0.36763662171753014,
+   "profit": 9879.044000000013
+  },
+  {
+   "share": 0.3875088715400994,
+   "profit": 9752.343000000013
+  },
+  {
+   "share": 0.40809084457061745,
+   "profit": 9193.151000000013
+  },
+  {
+   "share": 0.42867281760113557,
+   "profit": 9090.19300000001
+  },
+  {
+   "share": 0.44925479063165363,
+   "profit": 8759.163000000006
+  },
+  {
+   "share": 0.4691270404542229,
+   "profit": 8752.624000000005
+  },
+  {
+   "share": 0.48970901348474094,
+   "profit": 8344.410000000005
+  },
+  {
+   "share": 0.5102909865152591,
+   "profit": 7782.359000000004
+  },
+  {
+   "share": 0.5308729595457772,
+   "profit": 7335.4960000000065
+  },
+  {
+   "share": 0.5507452093683464,
+   "profit": 6723.446000000005
+  },
+  {
+   "share": 0.5713271823988645,
+   "profit": 6324.340000000006
+  },
+  {
+   "share": 0.5919091554293825,
+   "profit": 5828.400000000006
+  },
+  {
+   "share": 0.6124911284599006,
+   "profit": 5384.849000000004
+  },
+  {
+   "share": 0.6323633782824698,
+   "profit": 5066.739000000004
+  },
+  {
+   "share": 0.6529453513129879,
+   "profit": 4565.300000000004
+  },
+  {
+   "share": 0.673527324343506,
+   "profit": 4003.474000000003
+  },
+  {
+   "share": 0.6933995741660752,
+   "profit": 3242.7110000000025
+  },
+  {
+   "share": 0.7139815471965933,
+   "profit": 2697.3940000000034
+  },
+  {
+   "share": 0.7345635202271115,
+   "profit": 1953.4200000000035
+  },
+  {
+   "share": 0.7551454932576295,
+   "profit": 767.5760000000034
+  },
+  {
+   "share": 0.7750177430801988,
+   "profit": 159.95100000000377
+  },
+  {
+   "share": 0.7955997161107168,
+   "profit": -707.3679999999962
+  },
+  {
+   "share": 0.8161816891412349,
+   "profit": -1482.1699999999962
+  },
+  {
+   "share": 0.836763662171753,
+   "profit": -2763.4529999999954
+  },
+  {
+   "share": 0.8566359119943222,
+   "profit": -3829.5499999999947
+  },
+  {
+   "share": 0.8772178850248403,
+   "profit": -5174.462999999995
+  },
+  {
+   "share": 0.8977998580553584,
+   "profit": -6416.796999999994
+  },
+  {
+   "share": 0.9183818310858765,
+   "profit": -8044.516999999993
+  },
+  {
+   "share": 0.9382540809084458,
+   "profit": -9136.278999999991
+  },
+  {
+   "share": 0.9588360539389638,
+   "profit": -10643.62399999999
+  },
+  {
+   "share": 0.9794180269694819,
+   "profit": -12368.66099999999
+  },
+  {
+   "share": 1.0,
+   "profit": -13871.793999999987
+  }
+ ],
+ "sensitivity": [
+  {
+   "assumption": "save_rate",
+   "value": 0.1,
+   "ev_policy_profit": 706.8930000000004,
+   "ev_policy_share": 0.0887154009936125,
+   "top20_profit": -522.3709999999992,
+   "everyone_profit": -34555.117999999995
+  },
+  {
+   "assumption": "save_rate",
+   "value": 0.2,
+   "ev_policy_profit": 4893.754000000003,
+   "ev_policy_share": 0.23349893541518807,
+   "top20_profit": 5139.078000000001,
+   "everyone_profit": -24213.455999999995
+  },
+  {
+   "assumption": "save_rate",
+   "value": 0.3,
+   "ev_policy_profit": 10746.890000000001,
+   "ev_policy_share": 0.31014904187366926,
+   "top20_profit": 10800.527000000002,
+   "everyone_profit": -13871.793999999998
+  },
+  {
+   "assumption": "save_rate",
+   "value": 0.4,
+   "ev_policy_profit": 17806.240000000005,
+   "ev_policy_share": 0.36124911284599004,
+   "top20_profit": 16461.976000000006,
+   "everyone_profit": -3530.1319999999932
+  },
+  {
+   "assumption": "save_rate",
+   "value": 0.5,
+   "ev_policy_profit": 26201.890000000003,
+   "ev_policy_share": 0.3924769339957417,
+   "top20_profit": 22123.425000000003,
+   "everyone_profit": 6811.530000000005
+  },
+  {
+   "assumption": "margin",
+   "value": 0.25,
+   "ev_policy_profit": 3108.66,
+   "ev_policy_share": 0.1767210787792761,
+   "top20_profit": 2755.31,
+   "everyone_profit": -28567.84
+  },
+  {
+   "assumption": "margin",
+   "value": 0.4,
+   "ev_policy_profit": 10746.890000000001,
+   "ev_policy_share": 0.31014904187366926,
+   "top20_profit": 10800.527000000002,
+   "everyone_profit": -13871.793999999998
+  },
+  {
+   "assumption": "margin",
+   "value": 0.55,
+   "ev_policy_profit": 21141.474000000002,
+   "ev_policy_share": 0.37686302342086586,
+   "top20_profit": 18845.744000000002,
+   "everyone_profit": 824.2520000000054
+  },
+  {
+   "assumption": "stayer_accept_rate",
+   "value": 0.3,
+   "ev_policy_profit": 16045.140000000003,
+   "ev_policy_share": 0.4024130589070263,
+   "top20_profit": 13189.937,
+   "everyone_profit": 5054.096000000001
+  },
+  {
+   "assumption": "stayer_accept_rate",
+   "value": 0.6,
+   "ev_policy_profit": 10746.890000000001,
+   "ev_policy_share": 0.31014904187366926,
+   "top20_profit": 10800.527000000002,
+   "everyone_profit": -13871.793999999998
+  },
+  {
+   "assumption": "stayer_accept_rate",
+   "value": 0.9,
+   "ev_policy_profit": 8192.976,
+   "ev_policy_share": 0.2427253371185238,
+   "top20_profit": 8411.117,
+   "everyone_profit": -32797.684
+  },
+  {
+   "assumption": "offer_months_free",
+   "value": 0.5,
+   "ev_policy_profit": 19254.2175,
+   "ev_policy_share": 0.4300922640170334,
+   "top20_profit": 15424.7195,
+   "everyone_profit": 9136.331000000002
+  },
+  {
+   "assumption": "offer_months_free",
+   "value": 1.0,
+   "ev_policy_profit": 10746.890000000001,
+   "ev_policy_share": 0.31014904187366926,
+   "top20_profit": 10800.527000000002,
+   "everyone_profit": -13871.793999999998
+  },
+  {
+   "assumption": "offer_months_free",
+   "value": 2.0,
+   "ev_policy_profit": 3030.244,
+   "ev_policy_share": 0.13484740951029098,
+   "top20_profit": 1552.1420000000007,
+   "everyone_profit": -59888.043999999994
+  }
+ ],
+ "bootstrap_ev_minus_top20": {
+  "mean": -32.713214499999644,
+  "low": -1635.8737999999996,
+  "high": 1698.8531999999964,
+  "share_ev_better": 0.481
+ },
+ "fairness": [
+  {
+   "group": "gender",
+   "value": "Female",
+   "customers": 687,
+   "actual_churn": 0.28093158660844253,
+   "predicted_churn": 0.2681615875355368,
+   "roc_auc": 0.8350989070923622,
+   "share_offered": 0.3158660844250364
+  },
+  {
+   "group": "gender",
+   "value": "Male",
+   "customers": 722,
+   "actual_churn": 0.25069252077562326,
+   "predicted_churn": 0.2675482325664196,
+   "roc_auc": 0.842699727331216,
+   "share_offered": 0.3047091412742382
+  },
+  {
+   "group": "age",
+   "value": "Under 65",
+   "customers": 1187,
+   "actual_churn": 0.2325189553496209,
+   "predicted_churn": 0.24301755014751156,
+   "roc_auc": 0.8390485053850681,
+   "share_offered": 0.2695871946082561
+  },
+  {
+   "group": "age",
+   "value": "Senior",
+   "customers": 222,
+   "actual_churn": 0.44144144144144143,
+   "predicted_churn": 0.40060811948095726,
+   "roc_auc": 0.7831632653061225,
+   "share_offered": 0.527027027027027
+  }
+ ]
+}
